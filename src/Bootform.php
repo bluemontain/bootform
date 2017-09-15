@@ -6,11 +6,11 @@
  * Time: 22:31
  */
 
-namespace Dlouvard\Bootformlaravel;
+namespace BlueMountainTeam\Bootform;
 
 use \Form;
 use Illuminate\Support\Facades\App;
-use curunoir\translation\Models\Locale;
+use BlueMountainTeam\Translation\Models\Locale;
 
 class BootForm
 {

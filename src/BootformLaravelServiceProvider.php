@@ -1,9 +1,9 @@
 <?php
-namespace Dlouvard\Bootformlaravel;
+namespace BlueMountainTeam\Bootform;
 
 use Illuminate\Support\ServiceProvider;
 
-class BootformLaravelServiceProvider extends ServiceProvider
+class BootformServiceProvider extends ServiceProvider
 {
     public function boot()
     {

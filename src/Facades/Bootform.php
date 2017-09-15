@@ -1,5 +1,5 @@
 <?php
-namespace Dlouvard\Bootformlaravel\Facades;
+namespace BlueMountainTeam\Bootform\Facades;
 /**
  * Created by PhpStorm.
  * User: dlouvard_imac

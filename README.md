@@ -10,16 +10,16 @@ Require the translation package
 Add the service provider to your `config/app.php` config file
 
     Vinkla\Hashids\HashidsServiceProvider::class,
-    Dlouvard\Bootformlaravel\BootformLaravelServiceProvider::class,
+    BlueMountainTeam\Bootform\BootformLaravelServiceProvider::class,
     
 Add the facade to your aliases in your `config/app.php` config file
 
     'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
-    'BootForm' => Dlouvard\Bootformlaravel\Facades\BootForm::class,
+    'BootForm' => BlueMountainTeam\Bootform\Facades\BootForm::class,
     
 Publish the flags images assets
 
-    php artisan vendor:publish --provider="Dlouvard\Bootformlaravel\BootformLaravelServiceProvider"
+    php artisan vendor:publish --provider="BlueMountainTeam\Bootform\BootformLaravelServiceProvider"
     
 
 ## Usage

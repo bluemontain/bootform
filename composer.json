@@ -1,12 +1,19 @@
 {
-  "name": "curunoir/bootformlaravel",
+  "name": "bluemountainteam/bootform",
   "minimum-stability": "dev",
   "description": "Add Bootform Laravel 5",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/bluemountainteam/translation"
+    }
+  ],
   "require": {
     "php": ">=5.5.9",
     "illuminate/support": ">=5.1",
     "laravelcollective/html": "^5.4",
-    "vinkla/hashids": "^3.1"
+    "vinkla/hashids": "^3.1",
+    "bluemountainteam/translation": "dev-master"
   },
   "keywords": [
     "laravel",
@@ -23,7 +30,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Dlouvard\\Bootformlaravel\\": "src/"
+      "BlueMountainTeam\\Bootform\\": "src/"
     }
   }
 }
