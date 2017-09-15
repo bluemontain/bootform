@@ -248,7 +248,8 @@ class BootForm
     {
         if (file_exists(public_path('/assets/img/vendor/flags/' . $locale . '.png')))
             return '<span class="input-group-addon ' . $classL . '" style="min-width:42px"><img width="25px" src="'.asset('/assets/img/vendor/flags/' . $locale . '.png').'"></span>';
-        return '';
+        else
+            return '<span class="input-group-addon ' . $classL . '" style="min-width:42px">'.$locale.'</span>';
     }
 
     /**
