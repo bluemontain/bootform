@@ -1,16 +1,16 @@
-# Bootformlaravel
+# Bootform
 
 
 ## Installation
 
 Require the translation package 
 
-    composer require curunoir/bootformlaravel
+    composer require bluemountainteam/bootform
 
 Add the service provider to your `config/app.php` config file
 
     Vinkla\Hashids\HashidsServiceProvider::class,
-    BlueMountainTeam\Bootform\BootformLaravelServiceProvider::class,
+    BlueMountainTeam\Bootform\BootformServiceProvider::class,
     
 Add the facade to your aliases in your `config/app.php` config file
 
@@ -19,7 +19,7 @@ Add the facade to your aliases in your `config/app.php` config file
     
 Publish the flags images assets
 
-    php artisan vendor:publish --provider="BlueMountainTeam\Bootform\BootformLaravelServiceProvider"
+    php artisan vendor:publish --provider="BlueMountainTeam\Bootform\BootformServiceProvider"
     
 
 ## Usage
