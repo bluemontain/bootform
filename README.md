@@ -1,6 +1,5 @@
 # Bootformlaravel
 
-
 ## Installation
 
 Require the translation package 
