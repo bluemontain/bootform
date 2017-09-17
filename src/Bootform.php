@@ -391,7 +391,7 @@ class BootForm
     public function submit($name = null, $modal = true, $value = null, $size = 'normal')
     {
         if (!$name) {
-            $name = trad('Valider');
+            $name = _t('Valider');
         }
         $size = ($size == 'normal') ? null : $size;
         if ($value) {
