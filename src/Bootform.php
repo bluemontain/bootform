@@ -181,7 +181,7 @@ class BootForm
             $options['class'] = 'form-control';
         }
         $return = '<div class="form-group form-' . $type . ($errors && $errors->has($name) ? ' has-error' : '') . '">';
-        if ($label !== false) {
+        if ($label !== false && !isset($options['noLeft'])) {
             if (isset($options['required'])) {
                 $required = "*";
             } else {
