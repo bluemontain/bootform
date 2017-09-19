@@ -181,6 +181,7 @@ class BootForm
             $options['class'] = 'form-control';
         }
         $return = '<div class="form-group form-' . $type . ($errors && $errors->has($name) ? ' has-error' : '') . '">';
+
         if ($label !== false && !isset($options['noLeft'])) {
             if (isset($options['required'])) {
                 $required = "*";
@@ -195,6 +196,11 @@ class BootForm
                 $return .= $this->form->label($name, $label . $required, ['class' => 'control-label']);
             }
         }
+        // Mandatory only for the default locale
+        $required = isset($options['required']);
+        if($required)
+            unset($options['required']);
+
         //Horizontal
         if ($this->horizontal) {
             if (isset($options['right'])) $this->columns['right'] = $options['right'];
@@ -209,8 +215,9 @@ class BootForm
                 'model' => get_class($this->model),
                 'field' => $name
             ];
+            $its_app_locale = $l->code == App::getLocale();
 
-            $display = $l->code == App::getLocale() ? '' : 'none';
+            $display = $its_app_locale ? '' : 'none';
             $return .= '<div class="input-group" data-locale_id="' . $l->id . '" style="display:' . $display . '">';
             $classL = $l->id > 1 ? 'gooTrad' : null;
             $return .= $this->spanFlag($l->code, $classL);
@@ -218,13 +225,23 @@ class BootForm
             $trad = $this->model ? $this->model->getTrad($pTrad) : null;
             $options['data-name'] = $name;
             $options['data-type'] = $type == 'textarea' ? $type : 'input';
+            $options['data-lang'] = $l->code;
+
+            if($its_app_locale) {
+                $options['required'] = true;
+            }
             if ($type == 'textarea') {
                 $return .= $this->form->textarea($name . '[' . $l->id . ']', $trad, $options);
             } else {
                 $return .= $this->form->input($type, $name . '[' . $l->id . ']', $trad, $options);
             }
-            if ($l->code == App::getLocale())
+            if($its_app_locale){
+                unset($options['required']);
+                //d($options['required']);
+            }
+            if ($l->code == App::getLocale()) {
                 $return .= '<span class="input-group-addon showAllTrad ' . $classL . '"><i class="fa fa-flag"></i></span>';
+            }
 
             $return .= '</div>';
         endforeach;
