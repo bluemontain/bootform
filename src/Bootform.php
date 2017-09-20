@@ -132,10 +132,10 @@ class BootForm
         } elseif ($type == 'checkbox') {
             $return .= $this->form->checkbox($name, 1, $value, $options);
         } elseif ($type == 'datalists') {
-            $tmp = '<input list="' . $name . '" name="' . $name . '" value="'.$value.'" class="form-control">';
+            $tmp = '<input list="' . $name . '" name="' . $name . '" value="' . $value . '" class="form-control">';
             $tmp .= '<datalist id="' . $name . '">';
             foreach ($list as $l):
-                $tmp .= '<option value="'.$l.'" ' . ($value == $l ? 'selected="selected"' : null) . '>' . $l . '</option>';
+                $tmp .= '<option value="' . $l . '" ' . ($value == $l ? 'selected="selected"' : null) . '>' . $l . '</option>';
             endforeach;
             $tmp .= '</datalist>';
 
@@ -172,6 +172,10 @@ class BootForm
      */
     public function inputLang($type, $name, $label = null, $options = array())
     {
+        if(!config('bootform.activ_translation')){
+            dd("L'activation des traductions est désactivée : config.bootform.activ_translation");
+        }
+
         $options['locales'] = Locale::getAll();
         $errors = $this->session->get('errors');
 
@@ -198,7 +202,7 @@ class BootForm
         }
         // Mandatory only for the default locale
         $required = isset($options['required']);
-        if($required)
+        if ($required)
             unset($options['required']);
 
         //Horizontal
@@ -227,7 +231,7 @@ class BootForm
             $options['data-type'] = $type == 'textarea' ? $type : 'input';
             $options['data-lang'] = $l->code;
 
-            if($its_app_locale) {
+            if ($its_app_locale) {
                 $options['required'] = true;
             }
             if ($type == 'textarea') {
@@ -235,7 +239,7 @@ class BootForm
             } else {
                 $return .= $this->form->input($type, $name . '[' . $l->id . ']', $trad, $options);
             }
-            if($its_app_locale){
+            if ($its_app_locale) {
                 unset($options['required']);
                 //d($options['required']);
             }
@@ -264,9 +268,9 @@ class BootForm
     public function spanFlag($locale, $classL = null)
     {
         if (file_exists(public_path('/assets/vendor/img/flags/' . $locale . '.png')))
-            return '<span class="input-group-addon ' . $classL . '" style="min-width:42px"><img width="25px" src="'.asset('/assets/vendor/img/flags/' . $locale . '.png').'"></span>';
+            return '<span class="input-group-addon ' . $classL . '" style="min-width:42px"><img width="25px" src="' . asset('/assets/vendor/img/flags/' . $locale . '.png') . '"></span>';
         else
-            return '<span class="input-group-addon ' . $classL . '" style="min-width:42px">'.$locale.'</span>';
+            return '<span class="input-group-addon ' . $classL . '" style="min-width:42px">' . $locale . '</span>';
     }
 
     /**
@@ -408,7 +412,7 @@ class BootForm
     public function submit($name = null, $modal = true, $value = null, $size = 'normal')
     {
         if (!$name) {
-            $name = _t('Valider');
+            $name = config('bootform.activ_translation') ? _t('Valider') : 'Valider';
         }
         $size = ($size == 'normal') ? null : $size;
         if ($value) {

@@ -15,6 +15,10 @@ class BootformServiceProvider extends ServiceProvider
         $this->app->bind('bootform', function ($app) {
             return new BootForm($app['form'], $app['session']);
         });
+        // Allow configuration to be publishable.
+        $this->publishes([
+            __DIR__.'/Config/config.php' => config_path('bootform.php'),
+        ], 'config');
 
         // Pictures for inputLang publishes in public/ressources/assets
         $this->publishes([
