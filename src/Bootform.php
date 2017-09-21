@@ -176,7 +176,7 @@ class BootForm
             dd("L'activation des traductions est désactivée : config.bootform.activ_translation");
         }
 
-        $options['locales'] = Locale::getAll();
+        $options['locales'] = Locale::where('activ', 1)->get();
         $errors = $this->session->get('errors');
 
         if (isset($options['class'])) {
@@ -242,7 +242,6 @@ class BootForm
             }
             if ($its_app_locale) {
                 unset($options['required']);
-                //d($options['required']);
             }
 
             if ($l->code == App::getLocale()) {
