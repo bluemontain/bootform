@@ -231,9 +231,10 @@ class BootForm
             $options['data-type'] = $type == 'textarea' ? $type : 'input';
             $options['data-lang'] = $l->code;
 
-            if ($its_app_locale) {
+            if ($its_app_locale && $required) {
                 $options['required'] = true;
             }
+
             if ($type == 'textarea') {
                 $return .= $this->form->textarea($name . '[' . $l->id . ']', $trad, $options);
             } else {
@@ -243,6 +244,7 @@ class BootForm
                 unset($options['required']);
                 //d($options['required']);
             }
+
             if ($l->code == App::getLocale()) {
                 $return .= '<span class="input-group-addon showAllTrad ' . $classL . '"><i class="fa fa-flag"></i></span>';
             }
@@ -374,6 +376,7 @@ class BootForm
             $list = $value;
             $value = null;
         }
+
         return $this->input('select', $name, $label, $value, $options, $list);
     }
 
