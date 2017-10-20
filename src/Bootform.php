@@ -61,6 +61,10 @@ class BootForm
         if (isset($options['model'])) {
             $model = $options['model'];
         }
+        if (isset($options['forceControllerAction'])) {
+            $options['method'] = 'PUT';
+            $options['action'] = [$options['forceControllerAction']];
+        }
 
         return $this->form->model($model, $options);
     }
