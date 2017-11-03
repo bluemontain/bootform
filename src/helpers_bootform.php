@@ -20,7 +20,7 @@ if (!function_exists('_d')) {
     {
         $result = App::make('Hashids\Hashids')->decode($data);
         if (count($result) == 0) {
-            abort('404');
+            return null;
         }
         if (count($result) == 1) {
             return $result[0];
