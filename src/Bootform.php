@@ -85,7 +85,7 @@ class BootForm
             $options = $label;
             $label = null;
         }
-        if (is_array($value)) {
+        if (is_array($value) && !in_array('multiple',$options)) {
             $options = $value;
             $value = null;
         }
