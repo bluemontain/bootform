@@ -33,7 +33,11 @@ class BootForm
     public function open($model = null, array $options = array())
     {
         $this->model = $model;
-        $controller_name = str_plural($this->get_single_class($model)) . 'Controller';
+        if ($model):
+            $controller_name = str_plural($this->get_single_class($model)) . 'Controller';
+        else:
+            $controller_name = null;
+        endif;
         if ($model && $model->id) {
             $options['method'] = 'PUT';
             if (!isset($options['action'])) {
@@ -85,7 +89,7 @@ class BootForm
             $options = $label;
             $label = null;
         }
-        if (is_array($value) && !in_array('multiple',$options)) {
+        if (is_array($value) && !in_array('multiple', $options)) {
             $options = $value;
             $value = null;
         }
@@ -94,10 +98,7 @@ class BootForm
             $options['placeholder'] = $label;
             $label = false;
         }
-        if (!$label) {
-            $label = trans("form.$name");
-        }
-
+       
         if (isset($options['class'])) {
             $options['class'] .= ' form-control';
         } else {
@@ -176,7 +177,7 @@ class BootForm
      */
     public function inputLang($type, $name, $label = null, $options = array())
     {
-        if(!config('bootform.activ_translation')){
+        if (!config('bootform.activ_translation')) {
             dd("L'activation des traductions est désactivée : config.bootform.activ_translation");
         }
 
@@ -376,7 +377,7 @@ class BootForm
             $label = null;
         }
 
-        if (is_array($value) && !in_array('multiple',$options)) {
+        if (is_array($value) && !in_array('multiple', $options)) {
             $list = $value;
             $value = null;
         }
