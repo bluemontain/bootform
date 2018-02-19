@@ -98,7 +98,7 @@ class BootForm
             $options['placeholder'] = $label;
             $label = false;
         }
-       
+
         if (isset($options['class'])) {
             $options['class'] .= ' form-control';
         } else {
@@ -118,6 +118,9 @@ class BootForm
             } else {
                 $return .= $this->form->label($name, $label . $required, ['class' => 'control-label']);
             }
+            if (isset($options['label_right'])):
+                $return .= ' '.$options['label_right'];
+            endif;
         }
         //Horizontal
         if ($this->horizontal) {
