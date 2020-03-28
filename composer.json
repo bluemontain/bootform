@@ -8,10 +8,10 @@
     }
   ],
   "require": {
-    "php": "^7.2",
+    "php": "7.2",
     "illuminate/database": "6.*",
     "illuminate/events": "6.*",
-    "bluemountainteam/translation": "^6.0",
+    "bluemountainteam/translation": "6.1",
     "hashids/hashids": "^4.0"
   },
   "keywords": [
