@@ -1,6 +1,5 @@
 {
   "name": "bluemountainteam/bootform",
-  "minimum-stability": "dev",
   "description": "Add Bootform Laravel 5",
   "repositories": [
     {
