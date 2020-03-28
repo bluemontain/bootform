@@ -8,7 +8,7 @@
     }
   ],
   "require": {
-    "php": ">7.2",
+    "php": "^7.2",
     "illuminate/database": "6.*",
     "illuminate/events": "6.*",
     "bluemountainteam/translation": "^6.0",
