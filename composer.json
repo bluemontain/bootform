@@ -9,11 +9,11 @@
     }
   ],
   "require": {
-    "php": ">=5.5.9",
-    "illuminate/support": ">=5.1",
-    "laravelcollective/html": "^5.4",
-    "vinkla/hashids": "^3.1",
-    "bluemountainteam/translation": "master@dev"
+    "php": ">7.2",
+    "illuminate/database": "6.*",
+    "illuminate/events": "6.*",
+    "bluemountainteam/translation": "^6.0",
+    "hashids/hashids": "^4.0"
   },
   "keywords": [
     "laravel",
