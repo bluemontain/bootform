@@ -1,6 +1,6 @@
 {
   "name": "bluemountainteam/bootform",
-  "description": "Add Bootform Laravel 5",
+  "description": "Add Bootform Laravel",
   "repositories": [
     {
       "type": "vcs",
@@ -8,10 +8,10 @@
     }
   ],
   "require": {
-    "php": "7.2",
-    "illuminate/database": "6.*",
-    "illuminate/events": "6.*",
-    "bluemountainteam/translation": "6.1",
+    "php": "^7.4",
+    "illuminate/database": "8.*",
+    "illuminate/events": "8.*",
+    "bluemountainteam/translation": "8.*",
     "hashids/hashids": "^4.0"
   },
   "keywords": [
@@ -24,7 +24,7 @@
   "authors": [
     {
       "name": "Damien Louvard",
-      "email": "contact@damien-louvard.fr"
+      "email": "damien.louvard@bluemega.com"
     }
   ],
   "autoload": {
